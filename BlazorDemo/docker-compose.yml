@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  blazordemo.api:
+    image: ${DOCKER_REGISTRY-}blazordemoapi
+    build:
+      context: .
+      dockerfile: BlazorDemo.Api/Dockerfile
+
