@@ -1,22 +1,21 @@
 ﻿using BlazorDemo.Models.Weather;
+using BlazorDemo.Web.Repositories;
 using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 namespace BlazorDemo.Web.Pages
 {
     public partial class FetchData
     {
-        private List<WeatherForecast> forecasts;
+        private IEnumerable<WeatherForecast> forecasts;
 
         [Inject]
-        private HttpClient Http { get; set; }
+        private IApiRepository ApiRepository { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            forecasts = await Http.GetFromJsonAsync<List<WeatherForecast>>("WeatherForecast");
+            forecasts = await ApiRepository.GetAsync();
         }
     }
 }

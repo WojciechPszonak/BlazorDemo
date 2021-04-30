@@ -8,6 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["BlazorDemo.Api/BlazorDemo.Api.csproj", "BlazorDemo.Api/"]
+COPY ["BlazorDemo.Models/BlazorDemo.Models.csproj", "BlazorDemo.Models/"]
 RUN dotnet restore "BlazorDemo.Api/BlazorDemo.Api.csproj"
 COPY . .
 WORKDIR "/src/BlazorDemo.Api"

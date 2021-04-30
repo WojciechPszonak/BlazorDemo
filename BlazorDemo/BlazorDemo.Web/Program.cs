@@ -1,7 +1,8 @@
+using BlazorDemo.Web.Repositories;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Refit;
 using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace BlazorDemo.Web
@@ -13,7 +14,9 @@ namespace BlazorDemo.Web
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:57965") });
+            builder.Services
+                .AddRefitClient<IApiRepository>()
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:8081"));
 
             await builder.Build().RunAsync();
         }
