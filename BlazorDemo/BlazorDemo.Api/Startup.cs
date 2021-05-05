@@ -1,3 +1,4 @@
+using BlazorDemo.Api.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +20,8 @@ namespace BlazorDemo.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<RabbitMqOptions>(Configuration.GetSection("RabbitMqOptions"));
+
             services.AddCors(options => options
                 .AddPolicy("AllowAnyOrigin", policy => policy
                     .AllowAnyOrigin()));

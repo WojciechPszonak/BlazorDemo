@@ -6,9 +6,40 @@ services:
     build:
       context: .
       dockerfile: BlazorDemo.Api/Dockerfile
+    networks:
+      - data
+      - queue
+  blazordemo.worker:
+    image: ${DOCKER_REGISTRY-}blazordemoworker
+    build:
+      context: .
+      dockerfile: ../BlazorDemo.Worker/Dockerfile
+    networks:
+      - data
+      - queue
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    hostname: sql-server
+    container_name: sql-server
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=DBpassword123
+      - MSSQL_PID=Express
+    networks:
+      - data
   rabbitmq:
     image: rabbitmq:3-management
     container_name: rabbitmq
     ports:
       - 5672:5672
       - 15672:15672
+    networks:
+      - queue
+
+networks:
+  queue:
+    driver: bridge
+  data:
+    driver: bridge
