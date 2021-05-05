@@ -1,5 +1,6 @@
 using BlazorDemo.Api.Configuration;
 using BlazorDemo.Database;
+using BlazorDemo.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +36,10 @@ namespace BlazorDemo.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BlazorDemo.Api", Version = "v1" });
             });
+
+            services.AddScoped<AnswerRepository>();
+            services.AddScoped<QuestionRepository>();
+            services.AddScoped<SurveyRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
