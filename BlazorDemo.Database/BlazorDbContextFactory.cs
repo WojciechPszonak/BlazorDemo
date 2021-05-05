@@ -8,7 +8,7 @@ namespace BlazorDemo.Database
         public BlazorDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BlazorDbContext>();
-            optionsBuilder.UseSqlServer("Data Source=localhost;Persist Security Info=True;User ID=SA;Password=DBpassword123");
+            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=BlazorDb;Persist Security Info=True;User ID=SA;Password=DBpassword123");
             return new BlazorDbContext(optionsBuilder.Options);
         }
     }

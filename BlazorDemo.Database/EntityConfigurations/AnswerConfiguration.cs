@@ -8,6 +8,8 @@ namespace BlazorDemo.Database.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Answer> builder)
         {
+            builder.HasKey(a => new { a.QuestionId, a.SurveyId });
+
             builder.HasOne(a => a.Question)
                 .WithMany(q => q.Answers)
                 .HasForeignKey(a => a.QuestionId);
