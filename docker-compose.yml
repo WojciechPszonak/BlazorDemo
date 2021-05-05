@@ -13,7 +13,7 @@ services:
     image: ${DOCKER_REGISTRY-}blazordemoworker
     build:
       context: .
-      dockerfile: ../BlazorDemo.Worker/Dockerfile
+      dockerfile: BlazorDemo.Worker/Dockerfile
     networks:
       - data
       - queue
