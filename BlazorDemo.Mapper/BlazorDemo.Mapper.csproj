@@ -6,12 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
-    <PackageReference Include="MediatR" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorDemo.Contracts\BlazorDemo.Contracts.csproj" />
-    <ProjectReference Include="..\BlazorDemo.Repositiories\BlazorDemo.Repositories.csproj" />
+    <ProjectReference Include="..\BlazorDemo.Entities\BlazorDemo.Entities.csproj" />
+    <ProjectReference Include="..\BlazorDemo.Models\BlazorDemo.Models.csproj" />
   </ItemGroup>
 
 </Project>

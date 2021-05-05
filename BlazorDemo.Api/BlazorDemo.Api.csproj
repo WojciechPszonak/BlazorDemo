@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
       <PrivateAssets>all</PrivateAssets>
@@ -19,8 +23,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BlazorDemo.Contracts\BlazorDemo.Contracts.csproj" />
     <ProjectReference Include="..\BlazorDemo.Database\BlazorDemo.Database.csproj" />
+    <ProjectReference Include="..\BlazorDemo.Mapper\BlazorDemo.Mapper.csproj" />
     <ProjectReference Include="..\BlazorDemo.Models\BlazorDemo.Models.csproj" />
+    <ProjectReference Include="..\BlazorDemo.Repositiories\BlazorDemo.Repositories.csproj" />
+    <ProjectReference Include="..\BlazorDemo.Services\BlazorDemo.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,9 @@
 using BlazorDemo.Api.Configuration;
 using BlazorDemo.Database;
+using BlazorDemo.Mapper;
 using BlazorDemo.Repositories;
+using BlazorDemo.Services.Domain.Question;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +39,10 @@ namespace BlazorDemo.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BlazorDemo.Api", Version = "v1" });
             });
+
+            services.AddAutoMapper(typeof(QuestionProfile));
+            services.AddMediatR(typeof(AddQuestionHandler),
+                typeof(GetQuestionsHandler));
 
             services.AddScoped<AnswerRepository>();
             services.AddScoped<QuestionRepository>();
