@@ -6,9 +6,8 @@ namespace BlazorDemo.Contracts.Question.Commands
 {
     public class EditQuestionCommand : IRequest
     {
-        public Guid Id { get; set; }
-
-        public QuestionAddEdit Question { get; set; }
+        public Guid Id { get; }
+        public QuestionAddEdit Question { get; }
 
         public EditQuestionCommand(Guid id, QuestionAddEdit question)
         {

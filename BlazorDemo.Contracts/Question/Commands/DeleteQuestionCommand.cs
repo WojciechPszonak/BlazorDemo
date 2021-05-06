@@ -5,7 +5,7 @@ namespace BlazorDemo.Contracts.Question.Commands
 {
     public class DeleteQuestionCommand : IRequest
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; }
 
         public DeleteQuestionCommand(Guid id)
         {

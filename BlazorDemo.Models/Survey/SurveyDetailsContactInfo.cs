@@ -1,6 +1,6 @@
 ﻿namespace BlazorDemo.Models.Survey
 {
-    public class ContactInfoSection
+    public class SurveyDetailsContactInfo
     {
         public string PhoneNumber { get; set; }
 

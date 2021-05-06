@@ -2,7 +2,7 @@
 
 namespace BlazorDemo.Models.Survey
 {
-    public class BasicInfoSection
+    public class SurveyDetailsBasicInfo
     {
         public string FirstName { get; set; }
 
