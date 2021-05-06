@@ -4,9 +4,14 @@
     </MudDrawerHeader>
     <MudDivider Class="my-2" />
     <MudNavMenu Class="mud-width-full">
-        <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Filled.Home">Home</MudNavLink>
-        <MudNavLink Href="/counter" Icon="@Icons.Filled.Watch">Counter</MudNavLink>
-        <MudNavLink Href="/fetchdata" Icon="@Icons.Filled.Storage">Fetch data</MudNavLink>
+        <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Outlined.Home">Home</MudNavLink>
+        <MudNavGroup Title="Questions" Icon="@Icons.Outlined.LiveHelp" Expanded="true">
+            <MudNavLink Href="/questions" Icon="@Icons.Outlined.List">Browse</MudNavLink>
+        </MudNavGroup>
+        <MudNavGroup Title="Surveys" Icon="@Icons.Outlined.AssignmentTurnedIn" Expanded="true">
+            <MudNavLink Href="/surveys" Icon="@Icons.Outlined.List">Browse</MudNavLink>
+            <MudNavLink Href="/surveys/form" Icon="@Icons.Outlined.Add">New</MudNavLink>
+        </MudNavGroup>
     </MudNavMenu>
 </MudDrawer>
 
