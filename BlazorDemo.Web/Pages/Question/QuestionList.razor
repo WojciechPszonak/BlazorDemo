@@ -1,0 +1,33 @@
+﻿@page "/questions"
+
+<MudContainer Class="mt-6">
+    <MudText Typo="Typo.h4">Questions</MudText>
+    @if (questions == null)
+    {
+        <MudProgressCircular Color="Color.Primary" Size="Size.Small" Indeterminate="true" />
+    }
+    else
+    {
+        <QuestionListToolbar OnAdd="AddQuestion" OnRefresh="Refresh"/>
+        @if (questions.Any())
+        {
+            <MudTable Items="@questions" Hover="true">
+                <HeaderContent>
+                    <MudTh>Text</MudTh>
+                    <MudTh></MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="Text">@context.Text</MudTd>
+                    <MudTd DataLabel="Actions">
+                        <MudIconButton Icon="@Icons.Outlined.Edit" OnClick="() => EditQuestion(context)"></MudIconButton>
+                        <MudIconButton Icon="@Icons.Outlined.Delete" Color="Color.Error" OnClick="() => DeleteQuestion(context.Id)"></MudIconButton>
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        }
+        else
+        {
+            <MudAlert Severity="Severity.Info">Currently there are no questions.</MudAlert>
+        }
+    }
+</MudContainer>

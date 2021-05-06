@@ -8,16 +8,16 @@ namespace BlazorDemo.Web.Repositories
 {
     public interface IQuestionRepository
     {
-        [Get("")]
+        [Get("/")]
         Task<IEnumerable<QuestionListItem>> GetQuestions();
 
-        [Post("")]
+        [Post("/")]
         Task AddQuestion(QuestionAddEdit question);
 
-        [Put("{id}")]
+        [Put("/{id}")]
         Task EditQuestion(Guid id, QuestionAddEdit question);
 
-        [Delete("{id}")]
+        [Delete("/{id}")]
         Task DeleteQuestion(Guid id);
     }
 }
