@@ -10,7 +10,7 @@ namespace BlazorDemo.Models.Survey
 
         public Gender Gender { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public string Nationality { get; set; }
     }

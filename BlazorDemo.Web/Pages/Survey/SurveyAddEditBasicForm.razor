@@ -1,0 +1,14 @@
+﻿@using BlazorDemo.Models.Survey
+
+<MudPaper Class="my-3">
+    <MudTextField Label="First Name" @bind-Value="Model.FirstName" For="@(() => Model.FirstName)" />
+    <MudTextField Label="Last Name" @bind-Value="Model.LastName" For="@(() => Model.LastName)" />
+    <MudSelect Label="Gender" @bind-Value="Model.Gender" For="@(() => Model.Gender)">
+        @foreach (Gender item in Enum.GetValues(typeof(Gender)))
+        {
+            <MudSelectItem Value="@item">@item</MudSelectItem>
+        }
+    </MudSelect>
+    <MudDatePicker Label="Birth Date" @bind-Date="Model.BirthDate" For="@(() => Model.BirthDate)" />
+    <MudTextField Label="Nationality" @bind-Value="Model.Nationality" For="@(() => Model.Nationality)" />
+</MudPaper>

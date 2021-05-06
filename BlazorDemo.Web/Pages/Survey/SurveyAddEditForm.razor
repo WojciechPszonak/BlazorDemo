@@ -1,0 +1,11 @@
+﻿@page "/surveys/form"
+@page "/surveys/form/{id:guid}"
+
+<EditForm Model="@model" OnValidSubmit="Submit">
+    <SurveyAddEditBasicForm @bind-Model="model.BasicInfo" />
+    <SurveyAddEditContactForm @bind-Model="model.ContactInfo" />
+    @foreach (var question in questions)
+    {
+        <SurveyAddEditAnswerForm Question="question"/>
+    }
+</EditForm>
