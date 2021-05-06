@@ -3,6 +3,7 @@ using BlazorDemo.Database;
 using BlazorDemo.Mapper;
 using BlazorDemo.Repositories;
 using BlazorDemo.Services.Domain.Question;
+using BlazorDemo.Services.Domain.Survey;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,12 +43,20 @@ namespace BlazorDemo.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BlazorDemo.Api", Version = "v1" });
             });
 
-            services.AddAutoMapper(typeof(QuestionProfile));
+            services.AddAutoMapper(
+                typeof(QuestionProfile),
+                typeof(SurveyProfile));
             services.AddMediatR(
                 typeof(AddQuestionHandler),
                 typeof(DeleteQuestionHandler),
                 typeof(EditQuestionHandler),
-                typeof(GetQuestionsHandler));
+                typeof(GetQuestionsHandler),
+
+                typeof(AddSurveyHandler),
+                typeof(DeleteSurveyHandler),
+                typeof(EditSurveyHandler),
+                typeof(GetSurveyDetailsHandler),
+                typeof(GetSurveysHandler));
 
             services.AddScoped<AnswerRepository>();
             services.AddScoped<QuestionRepository>();
