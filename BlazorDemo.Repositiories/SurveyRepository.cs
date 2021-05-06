@@ -21,6 +21,7 @@ namespace BlazorDemo.Repositories
         {
             return await context.Surveys
                 .Include(s => s.Answers)
+                    .ThenInclude(a => a.Question)
                 .SingleOrDefaultAsync(s => s.Id == id);
         }
     }
