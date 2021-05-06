@@ -1,6 +1,7 @@
 using BlazorDemo.Web.Repositories;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using MudBlazor.Services;
 using Refit;
 using System;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace BlazorDemo.Web
             builder.Services
                 .AddRefitClient<IQuestionRepository>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:8081/api/Questions"));
+
+            builder.Services.AddMudServices();
 
             await builder.Build().RunAsync();
         }
