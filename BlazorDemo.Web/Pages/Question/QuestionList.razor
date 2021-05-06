@@ -8,13 +8,17 @@
     }
     else
     {
-        <QuestionListToolbar OnAdd="AddQuestion" OnRefresh="Refresh"/>
+        <QuestionListToolbar OnAdd="AddQuestion" OnRefresh="Refresh" />
         @if (questions.Any())
         {
             <MudTable Items="@questions" Hover="true">
+                <ColGroup>
+                    <col />
+                    <col style="width: 150px;" />
+                </ColGroup>
                 <HeaderContent>
                     <MudTh>Text</MudTh>
-                    <MudTh></MudTh>
+                    <MudTh>Actions</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Text">@context.Text</MudTd>

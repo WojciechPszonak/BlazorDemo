@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Components;
 using MudBlazor;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BlazorDemo.Web.Pages.Question
@@ -38,19 +37,34 @@ namespace BlazorDemo.Web.Pages.Question
 
         private async Task AddQuestion()
         {
+            var options = new DialogOptions { MaxWidth = MaxWidth.Small, FullWidth = true };
+            var dialog = DialogService.Show<QuestionAddEditDialog>("Add question", options);
+            var result = await dialog.Result;
 
+            if (!result.Cancelled)
+            {
+                await QuestionRepository.AddQuestion(result.Data as QuestionAddEdit);
+                await FetchData();
+            }
         }
 
         private async Task EditQuestion(QuestionListItem item)
         {
-            //var dialog = DialogService.Show<QuestionDeleteDialog>("Attention");
-            //var result = await dialog.Result;
+            var model = new QuestionAddEdit
+            {
+                Text = item.Text
+            };
 
-            //if (!result.Cancelled)
-            //{
-            //    await QuestionRepository.DeleteQuestion(id);
-            //    await FetchData();
-            //}
+            var parameters = new DialogParameters { ["Model"] = model };
+            var options = new DialogOptions { MaxWidth = MaxWidth.Small, FullWidth = true };
+            var dialog = DialogService.Show<QuestionAddEditDialog>("Edit question", parameters, options);
+            var result = await dialog.Result;
+
+            if (!result.Cancelled)
+            {
+                await QuestionRepository.EditQuestion(item.Id, result.Data as QuestionAddEdit);
+                await FetchData();
+            }
         }
 
         private async Task DeleteQuestion(Guid id)
