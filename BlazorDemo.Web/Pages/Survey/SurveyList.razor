@@ -1,0 +1,43 @@
+﻿@page "/surveys"
+
+<MudContainer Class="mt-6">
+    <MudText Typo="Typo.h4">Surveys</MudText>
+    @if (surveys == null)
+    {
+        <MudProgressCircular Color="Color.Primary" Size="Size.Small" Indeterminate="true" />
+    }
+    else
+    {
+        <SurveyListToolbar OnAdd="AddSurvey" OnRefresh="Refresh" />
+        @if (surveys.Any())
+        {
+            <MudTable Items="@surveys" Hover="true">
+                <ColGroup>
+                    <col />
+                    <col />
+                    <col />
+                    <col style="width: 150px;" />
+                </ColGroup>
+                <HeaderContent>
+                    <MudTh>First Name</MudTh>
+                    <MudTh>Last Name</MudTh>
+                    <MudTh>Birth Date</MudTh>
+                    <MudTh>Actions</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="Text">@context.FirstName</MudTd>
+                    <MudTd DataLabel="Text">@context.LastName</MudTd>
+                    <MudTd DataLabel="Text">@context.BirthDate.ToShortDateString()</MudTd>
+                    <MudTd DataLabel="Actions">
+                        <MudIconButton Icon="@Icons.Outlined.Edit" OnClick="() => EditSurvey(context)"></MudIconButton>
+                        <MudIconButton Icon="@Icons.Outlined.Delete" Color="Color.Error" OnClick="() => DeleteSurvey(context.Id)"></MudIconButton>
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        }
+        else
+        {
+            <MudAlert Severity="Severity.Info">Currently there are no surveys.</MudAlert>
+        }
+    }
+</MudContainer>

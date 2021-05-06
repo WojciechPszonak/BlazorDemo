@@ -18,6 +18,9 @@ namespace BlazorDemo.Web
             builder.Services
                 .AddRefitClient<IQuestionRepository>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:8081/api/Questions"));
+            builder.Services
+                .AddRefitClient<ISurveyRepository>()
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:8081/api/Surveys"));
 
             builder.Services.AddMudServices();
 
