@@ -1,7 +1,7 @@
 ﻿@page "/counter"
 
-<h1>Counter</h1>
-
-<p>Current count: @currentCount</p>
-
-<MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="IncrementCount">Click me</MudButton>
+<MudContainer Class="mt-6">
+    <MudText Typo="Typo.h4">Counter</MudText>
+    <MudText>Current count: @currentCount</MudText>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="IncrementCount">Click me</MudButton>
+</MudContainer>

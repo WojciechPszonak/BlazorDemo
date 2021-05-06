@@ -17,13 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDemo.Models", "Blazor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDemo.Web", "BlazorDemo.Web\BlazorDemo.Web.csproj", "{F188D43A-CF78-4F41-B238-4D5E5238B9A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDemo.Services", "BlazorDemo.Services\BlazorDemo.Services.csproj", "{E61DBEBD-4CED-46BD-8F73-DD99D6990F5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDemo.Services", "BlazorDemo.Services\BlazorDemo.Services.csproj", "{E61DBEBD-4CED-46BD-8F73-DD99D6990F5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDemo.Repositories", "BlazorDemo.Repositiories\BlazorDemo.Repositories.csproj", "{EDA4F08D-9D1F-46CC-9DEA-880F552AABFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDemo.Repositories", "BlazorDemo.Repositiories\BlazorDemo.Repositories.csproj", "{EDA4F08D-9D1F-46CC-9DEA-880F552AABFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDemo.Contracts", "BlazorDemo.Contracts\BlazorDemo.Contracts.csproj", "{B87CDC62-5187-46C4-93C4-11466966398F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDemo.Contracts", "BlazorDemo.Contracts\BlazorDemo.Contracts.csproj", "{B87CDC62-5187-46C4-93C4-11466966398F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDemo.Mapper", "BlazorDemo.Mapper\BlazorDemo.Mapper.csproj", "{54566BC3-8E48-4FE4-A273-D44A1EA90AEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDemo.Mapper", "BlazorDemo.Mapper\BlazorDemo.Mapper.csproj", "{54566BC3-8E48-4FE4-A273-D44A1EA90AEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

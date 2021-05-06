@@ -1,0 +1,13 @@
+﻿<MudAppBar Elevation="2" Color="Color.Primary">
+    <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
+</MudAppBar>
+
+@code {
+    [Parameter]
+    public EventCallback OnDrawerToggle { get; set; }
+
+    private Task ToggleDrawer()
+    {
+        return OnDrawerToggle.InvokeAsync();
+    }
+} 

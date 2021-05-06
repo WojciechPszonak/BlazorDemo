@@ -1,17 +1,35 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<MudThemeProvider Theme="BlazorDemoTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudLayout>
+    <AppBar OnDrawerToggle="ToggleDrawer" />
+    <NavMenu IsOpen="@isDrawerOpen" />
+    <MudMainContent Class="pt-16 px-6">
+        @Body
+    </MudMainContent>
+</MudLayout>
 
-    <div class="main">
-        <div class="top-row px-4">
-            <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
-        </div>
+@code {
+    private bool isDrawerOpen = true;
 
-        <div class="content px-4">
-            @Body
-        </div>
-    </div>
-</div>
+    private void ToggleDrawer()
+    {
+        isDrawerOpen = !isDrawerOpen;
+    }
+
+    MudTheme BlazorDemoTheme = new MudTheme
+    {
+        Palette = new Palette
+        {
+            Primary = Colors.Teal.Darken1,
+            Secondary = Colors.Yellow.Darken1,
+            Tertiary = Colors.LightBlue.Default
+        },
+        LayoutProperties = new LayoutProperties
+        {
+            DrawerWidthLeft = "300px"
+        }
+    };
+}

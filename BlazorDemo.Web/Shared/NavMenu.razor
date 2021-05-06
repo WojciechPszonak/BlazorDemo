@@ -1,4 +1,16 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
+﻿<MudDrawer @bind-Open="@IsOpen" ClipMode="DrawerClipMode.Docked" Elevation="1">
+    <MudDrawerHeader>
+        <MudText Typo="Typo.h6">Blazor Demo</MudText>
+    </MudDrawerHeader>
+    <MudDivider Class="my-2" />
+    <MudNavMenu Class="mud-width-full">
+        <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Filled.Home">Home</MudNavLink>
+        <MudNavLink Href="/counter" Icon="@Icons.Filled.Watch">Counter</MudNavLink>
+        <MudNavLink Href="/fetchdata" Icon="@Icons.Filled.Storage">Fetch data</MudNavLink>
+    </MudNavMenu>
+</MudDrawer>
+
+@*<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">BlazorDemo</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
@@ -23,15 +35,9 @@
             </NavLink>
         </li>
     </ul>
-</div>
+</div>*@
 
 @code {
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+    [Parameter]
+    public bool IsOpen { get; set; }
 }
