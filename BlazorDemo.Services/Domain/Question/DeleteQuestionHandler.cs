@@ -18,6 +18,7 @@ namespace BlazorDemo.Services.Domain.Question
         protected async override Task Handle(DeleteQuestionCommand request, CancellationToken cancellationToken)
         {
             await questionRepository.DeleteAsync(request.Id);
+            await questionRepository.SaveChangesAsync();
         }
     }
 }

@@ -27,6 +27,7 @@ namespace BlazorDemo.Services.Domain.Question
             {
                 mapper.Map(request.Question, entity);
                 questionRepository.Update(entity);
+                await questionRepository.SaveChangesAsync();
             }
         }
     }
