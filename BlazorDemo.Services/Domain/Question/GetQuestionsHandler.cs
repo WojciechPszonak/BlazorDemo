@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BlazorDemo.Contracts.Question;
+using BlazorDemo.Contracts.Question.Queries;
 using BlazorDemo.Models.Question;
 using BlazorDemo.Repositories;
 using MediatR;

@@ -1,7 +1,7 @@
 ﻿using BlazorDemo.Models.Question;
 using MediatR;
 
-namespace BlazorDemo.Contracts.Question
+namespace BlazorDemo.Contracts.Question.Commands
 {
     public class AddQuestionCommand : IRequest
     {

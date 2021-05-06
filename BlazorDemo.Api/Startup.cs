@@ -41,7 +41,10 @@ namespace BlazorDemo.Api
             });
 
             services.AddAutoMapper(typeof(QuestionProfile));
-            services.AddMediatR(typeof(AddQuestionHandler),
+            services.AddMediatR(
+                typeof(AddQuestionHandler),
+                typeof(DeleteQuestionHandler),
+                typeof(EditQuestionHandler),
                 typeof(GetQuestionsHandler));
 
             services.AddScoped<AnswerRepository>();

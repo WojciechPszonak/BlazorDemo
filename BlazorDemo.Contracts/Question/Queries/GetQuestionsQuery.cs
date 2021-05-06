@@ -2,7 +2,7 @@
 using MediatR;
 using System.Collections.Generic;
 
-namespace BlazorDemo.Contracts.Question
+namespace BlazorDemo.Contracts.Question.Queries
 {
     public class GetQuestionsQuery : IRequest<IEnumerable<QuestionListItem>>
     {
