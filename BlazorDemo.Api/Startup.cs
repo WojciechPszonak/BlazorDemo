@@ -31,7 +31,8 @@ namespace BlazorDemo.Api
             services.AddCors(options => options
                 .AddPolicy("AllowAnyOrigin", policy => policy
                     .AllowAnyOrigin()
-                    .AllowAnyMethod()));
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()));
 
             services.AddDbContext<BlazorDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BlazorDb")));
             
