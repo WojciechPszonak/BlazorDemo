@@ -2,7 +2,7 @@
 
 namespace BlazorDemo.Models.Question
 {
-    public class Question
+    public class QuestionListItem
     {
         public Guid Id { get; set; }
 

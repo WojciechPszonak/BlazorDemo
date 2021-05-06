@@ -19,19 +19,19 @@ namespace BlazorDemo.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Question>> GetQuestions()
+        public async Task<IEnumerable<QuestionListItem>> GetQuestions()
         {
-            var request = new GetQuestionsQuery();
+            var query = new GetQuestionsQuery();
 
-            return await mediator.Send(request);
+            return await mediator.Send(query);
         }
 
         [HttpPost]
-        public async Task AddQuestion(Question question)
+        public async Task AddQuestion(QuestionAddEdit question)
         {
-            var notification = new AddQuestionCommand(question);
+            var command = new AddQuestionCommand(question);
 
-            await mediator.Send(notification);
+            await mediator.Send(command);
         }
     }
 }

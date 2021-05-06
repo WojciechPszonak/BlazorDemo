@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BlazorDemo.Contracts.Question
 {
-    public class GetQuestionsQuery : IRequest<IEnumerable<Models.Question.Question>>
+    public class GetQuestionsQuery : IRequest<IEnumerable<QuestionListItem>>
     {
     }
 }

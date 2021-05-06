@@ -1,12 +1,13 @@
-﻿using MediatR;
+﻿using BlazorDemo.Models.Question;
+using MediatR;
 
 namespace BlazorDemo.Contracts.Question
 {
     public class AddQuestionCommand : IRequest
     {
-        public Models.Question.Question Question { get; set; }
+        public QuestionAddEdit Question { get; set; }
 
-        public AddQuestionCommand(Models.Question.Question question)
+        public AddQuestionCommand(QuestionAddEdit question)
         {
             Question = question;
         }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BlazorDemo.Models.Question;
 
 namespace BlazorDemo.Mapper
 {
@@ -6,8 +7,8 @@ namespace BlazorDemo.Mapper
     {
         public QuestionProfile()
         {
-            CreateMap<Entities.Question, Models.Question.Question>()
-                .ReverseMap();
+            CreateMap<Entities.Question, QuestionListItem>();
+            CreateMap<QuestionAddEdit, Entities.Question>();
         }
     }
 }
