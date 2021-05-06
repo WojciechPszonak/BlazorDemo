@@ -3,11 +3,3 @@
     <MudIconButton Icon="@Icons.Outlined.Add" OnClick="() => OnAdd.InvokeAsync()" />
     <MudIconButton Icon="@Icons.Outlined.Refresh" OnClick="() => OnRefresh.InvokeAsync()" />
 </MudToolBar>
-
-@code {
-    [Parameter]
-    public EventCallback OnAdd { get; set; }
-
-    [Parameter]
-    public EventCallback OnRefresh { get; set; }
-}

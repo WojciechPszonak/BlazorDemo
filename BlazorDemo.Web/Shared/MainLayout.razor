@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider Theme="BlazorDemoTheme" />
+<MudThemeProvider Theme="blazorDemoTheme" />
 <MudDialogProvider />
 <MudSnackbarProvider />
 <MudLayout>
@@ -10,26 +10,3 @@
         @Body
     </MudMainContent>
 </MudLayout>
-
-@code {
-    private bool isDrawerOpen = true;
-
-    private void ToggleDrawer()
-    {
-        isDrawerOpen = !isDrawerOpen;
-    }
-
-    MudTheme BlazorDemoTheme = new MudTheme
-    {
-        Palette = new Palette
-        {
-            Primary = Colors.Teal.Darken1,
-            Secondary = Colors.Yellow.Darken3,
-            Tertiary = Colors.LightBlue.Default
-        },
-        LayoutProperties = new LayoutProperties
-        {
-            DrawerWidthLeft = "300px"
-        }
-    };
-}

@@ -16,10 +16,6 @@ namespace BlazorDemo.Web
             builder.RootComponents.Add<App>("#app");
 
             builder.Services
-                .AddRefitClient<IApiRepository>()
-                .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:8081"));
-
-            builder.Services
                 .AddRefitClient<IQuestionRepository>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:8081/api/Questions"));
 
