@@ -18,9 +18,13 @@ namespace BlazorDemo.Web.Pages.Survey
         private IQuestionRepository QuestionRepository { get; set; }
         [Inject]
         private ISurveyRepository SurveyRepository { get; set; }
+        [Inject]
+        private NavigationManager NavigationManager { get; set; }
 
         private SurveyAddEdit model = new();
         private IEnumerable<QuestionListItem> questions = new List<QuestionListItem>();
+
+        private bool formSubmitted = false;
 
         protected override async Task OnInitializedAsync()
         {
@@ -78,6 +82,7 @@ namespace BlazorDemo.Web.Pages.Survey
 
         private async Task Submit()
         {
+            formSubmitted = true;
             if (Id.HasValue)
             {
                 await SurveyRepository.EditSurvey(Id.Value, model);
@@ -86,6 +91,8 @@ namespace BlazorDemo.Web.Pages.Survey
             {
                 await SurveyRepository.AddSurvey(model);
             }
+
+            NavigationManager.NavigateTo("/surveys");
         }
     }
 }

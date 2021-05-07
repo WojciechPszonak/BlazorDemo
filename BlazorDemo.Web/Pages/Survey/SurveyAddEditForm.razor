@@ -20,6 +20,6 @@
                 <SurveyAddEditAnswerForm Model="answer" ModelChanged="@((answer) => UpdateAnswer(answer))" />
             }
         </MudPaper>
-        <MudButton ButtonType="ButtonType.Submit" Color="@Color.Primary" Variant="Variant.Filled">Submit</MudButton>
+        <MudButton ButtonType="ButtonType.Submit" Disabled="formSubmitted" Color="@Color.Primary" Variant="Variant.Filled">Submit</MudButton>
     </EditForm>
 </MudContainer>

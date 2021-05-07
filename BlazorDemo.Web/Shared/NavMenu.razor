@@ -6,10 +6,10 @@
     <MudNavMenu Class="mud-width-full">
         <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Outlined.Home" IconColor="Color.Secondary">Home</MudNavLink>
         <MudNavGroup Title="Questions" Icon="@Icons.Outlined.LiveHelp" IconColor="Color.Secondary" Expanded="true">
-            <MudNavLink Href="/questions" Icon="@Icons.Outlined.List" IconColor="Color.Secondary">Browse</MudNavLink>
+            <MudNavLink Href="/questions" Match="NavLinkMatch.All" Icon="@Icons.Outlined.List" IconColor="Color.Secondary">Browse</MudNavLink>
         </MudNavGroup>
         <MudNavGroup Title="Surveys" Icon="@Icons.Outlined.AssignmentTurnedIn" IconColor="Color.Secondary" Expanded="true">
-            <MudNavLink Href="/surveys" Icon="@Icons.Outlined.List" IconColor="Color.Secondary">Browse</MudNavLink>
+            <MudNavLink Href="/surveys" Match="NavLinkMatch.All" Icon="@Icons.Outlined.List" IconColor="Color.Secondary">Browse</MudNavLink>
             <MudNavLink Href="/surveys/form" Icon="@Icons.Outlined.Add" IconColor="Color.Secondary">New</MudNavLink>
         </MudNavGroup>
     </MudNavMenu>

@@ -21,7 +21,7 @@ namespace BlazorDemo.Services.Domain.Survey
 
         protected override async Task Handle(EditSurveyCommand request, CancellationToken cancellationToken)
         {
-            var entity = await surveyRepository.GetByIdAsync(request.Id);
+            var entity = await surveyRepository.GetSurveyByIdAsync(request.Id);
 
             if (entity != null)
             {
