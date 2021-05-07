@@ -1,30 +1,21 @@
-﻿using AutoMapper;
-using BlazorDemo.Contracts.Survey.Commands;
-using BlazorDemo.Repositories;
+﻿using BlazorDemo.Contracts.Survey.Commands;
+using BlazorDemo.Services.Infrastructure;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace BlazorDemo.Services.Domain.Survey
 {
-    public class AddSurveyHandler : AsyncRequestHandler<AddSurveyCommand>
+    public class AddSurveyHandler : RequestHandler<AddSurveyCommand>
     {
-        private readonly SurveyRepository surveyRepository;
-        private readonly IMapper mapper;
+        private readonly QueueService queueService;
 
-        public AddSurveyHandler(SurveyRepository surveyRepository,
-            IMapper mapper)
+        public AddSurveyHandler(QueueService queueService)
         {
-            this.surveyRepository = surveyRepository;
-            this.mapper = mapper;
+            this.queueService = queueService;
         }
 
-        protected override async Task Handle(AddSurveyCommand request, CancellationToken cancellationToken)
+        protected override void Handle(AddSurveyCommand request)
         {
-            var entity = mapper.Map<Entities.Survey>(request.Survey);
-
-            surveyRepository.Add(entity);
-            await surveyRepository.SaveChangesAsync();
+            queueService.Send("survey.add", request);
         }
     }
 }

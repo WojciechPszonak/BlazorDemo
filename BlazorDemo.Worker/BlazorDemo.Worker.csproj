@@ -8,7 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.13" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BlazorDemo.Configuration\BlazorDemo.Configuration.csproj" />
+    <ProjectReference Include="..\BlazorDemo.Contracts\BlazorDemo.Contracts.csproj" />
+    <ProjectReference Include="..\BlazorDemo.Entities\BlazorDemo.Entities.csproj" />
+    <ProjectReference Include="..\BlazorDemo.Mapper\BlazorDemo.Mapper.csproj" />
+    <ProjectReference Include="..\BlazorDemo.Repositiories\BlazorDemo.Repositories.csproj" />
   </ItemGroup>
 </Project>

@@ -1,9 +1,10 @@
-using BlazorDemo.Api.Configuration;
+using BlazorDemo.Configuration;
 using BlazorDemo.Database;
 using BlazorDemo.Mapper;
 using BlazorDemo.Repositories;
 using BlazorDemo.Services.Domain.Question;
 using BlazorDemo.Services.Domain.Survey;
+using BlazorDemo.Services.Infrastructure;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,7 +37,7 @@ namespace BlazorDemo.Api
                     .AllowAnyHeader()));
 
             services.AddDbContext<BlazorDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BlazorDb")));
-            
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -61,6 +62,8 @@ namespace BlazorDemo.Api
             services.AddScoped<AnswerRepository>();
             services.AddScoped<QuestionRepository>();
             services.AddScoped<SurveyRepository>();
+
+            services.AddScoped<QueueService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
