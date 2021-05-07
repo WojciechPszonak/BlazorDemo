@@ -1,6 +1,7 @@
 ﻿@using BlazorDemo.Models.Survey
 
-<MudPaper Class="my-3">
+<MudPaper Class="my-3 px-10 py-4">
+    <MudText Typo="Typo.h6">Basic info</MudText>
     <MudTextField Label="First Name" @bind-Value="Model.FirstName" For="@(() => Model.FirstName)" />
     <MudTextField Label="Last Name" @bind-Value="Model.LastName" For="@(() => Model.LastName)" />
     <MudSelect Label="Gender" @bind-Value="Model.Gender" For="@(() => Model.Gender)">

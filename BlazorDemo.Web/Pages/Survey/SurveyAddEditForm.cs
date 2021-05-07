@@ -53,11 +53,27 @@ namespace BlazorDemo.Web.Pages.Survey
                         new SurveyAddEditAnswer
                         {
                             QuestionId = answer.QuestionId,
+                            QuestionText = answer.QuestionText,
                             Value = answer.Value
-                        })
+                        }).ToList()
                 };
             }
+            var notAnsweredQuestions = questions
+                .Where(q => model.Answers.All(a => a.QuestionId != q.Id))
+                .Select(q => new SurveyAddEditAnswer
+                {
+                    QuestionId = q.Id,
+                    QuestionText = q.Text
+                })
+                .ToList();
+            model.Answers = model.Answers.Union(notAnsweredQuestions);
+
             await base.OnParametersSetAsync();
+        }
+
+        private void UpdateAnswer(SurveyAddEditAnswer answer)
+        {
+            model.Answers.First(a => a.QuestionId == answer.QuestionId).Value = answer.Value;
         }
 
         private async Task Submit()

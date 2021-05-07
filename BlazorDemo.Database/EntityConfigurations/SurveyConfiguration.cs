@@ -21,6 +21,8 @@ namespace BlazorDemo.Database.EntityConfigurations
             builder.Property(s => s.Nationality)
                 .IsRequired()
                 .HasMaxLength(50);
+            builder.Property(s => s.BirthDate)
+                .IsRequired();
             builder.Property(s => s.Email)
                 .HasMaxLength(50);
             builder.Property(s => s.PhoneNumber)

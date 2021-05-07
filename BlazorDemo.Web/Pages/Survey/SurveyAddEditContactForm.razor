@@ -1,1 +1,5 @@
-﻿
+﻿<MudPaper Class="my-3 px-10 py-4">
+    <MudText Typo="Typo.h6">Contact info</MudText>
+    <MudTextField Label="Email" @bind-Value="Model.Email" For="@(() => Model.PhoneNumber)" />
+    <MudTextField Label="Phone Number" @bind-Value="Model.PhoneNumber" For="@(() => Model.PhoneNumber)" />
+</MudPaper>
